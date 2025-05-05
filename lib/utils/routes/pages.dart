@@ -1,4 +1,5 @@
 import 'package:admin_panel_ecommerce/common/widgets/components/templates/site_templates.dart';
+import 'package:admin_panel_ecommerce/features/authentication/presentation/controller/login/authentication_binding_login.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/forget_password/authentication_page_forget_password.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/login/authentication_page_login.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/reset_password/authentication_page_reset_password.dart';
@@ -9,7 +10,10 @@ import 'package:get/get.dart';
 
 class AppPages {
   static final List<GetPage> pages = [
-    GetPage(name: AppRoutes.login, page: () => AuthenticationPageLogin()),
+    GetPage(
+        name: AppRoutes.login,
+        binding: AuthenticationBindingLogin(),
+        page: () => AuthenticationPageLogin()),
     GetPage(
         name: AppRoutes.forgetPassword,
         page: () => AuthenticationPageForgetPassword()),
@@ -18,7 +22,7 @@ class AppPages {
         page: () => AuthenticationPageResetPassword()),
     GetPage(
         name: AppRoutes.dashboard,
-        middlewares: [],
+        middlewares: [AuthMiddleware()],
         page: () => SiteTemplates(
               desktop: SizedBox(),
               tablet: SizedBox(),

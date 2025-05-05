@@ -59,6 +59,31 @@ class Sidebar extends StatelessWidget {
                       icon: Iconsax.picture_frame,
                       itemName: "Banner",
                     ),
+
+                    Text(
+                      'MENU',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .apply(letterSpacingDelta: 1.2),
+                    ),
+
+                    // OTHER ITEMS
+                    MenuItemSidebar(
+                      route: AppRoutes.users,
+                      icon: Iconsax.user,
+                      itemName: "Profile",
+                    ),
+                    MenuItemSidebar(
+                      route: AppRoutes.settings,
+                      icon: Iconsax.setting_2,
+                      itemName: "Setting",
+                    ),
+                    MenuItemSidebar(
+                      route: AppRoutes.logout,
+                      icon: Iconsax.logout,
+                      itemName: "Logout",
+                    ),
                   ],
                 ),
               )

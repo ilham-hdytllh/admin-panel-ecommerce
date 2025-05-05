@@ -1,4 +1,5 @@
 import 'package:admin_panel_ecommerce/common/localization/string_key.dart';
+import 'package:admin_panel_ecommerce/features/authentication/presentation/controller/login/authentication_controller_login.dart';
 import 'package:admin_panel_ecommerce/utils/constants/sizes.dart';
 import 'package:admin_panel_ecommerce/utils/functions.dart';
 import 'package:admin_panel_ecommerce/utils/routes/routes.dart';
@@ -11,6 +12,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loginController = Get.find<AuthenticationControllerLogin>();
     return Form(
         child: Padding(
       padding: EdgeInsets.symmetric(vertical: DimenSizes.spaceBtwSections),
@@ -18,6 +20,7 @@ class LoginForm extends StatelessWidget {
         children: [
           // EMAIL
           TextFormField(
+            controller: loginController.emailController,
             decoration: InputDecoration(
                 prefixIcon: Icon(Iconsax.direct_right),
                 labelText: getLocale(StringKey.email)),
@@ -25,6 +28,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(height: DimenSizes.spaceBtwInputFields),
           // PASSWORD
           TextFormField(
+            controller: loginController.passwordController,
             decoration: InputDecoration(
                 prefixIcon: Icon(Iconsax.password_check),
                 suffixIcon:
@@ -53,7 +57,8 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () {}, child: Text(getLocale(StringKey.signIn))),
+                onPressed: loginController.signIn,
+                child: Text(getLocale(StringKey.signIn))),
           )
         ],
       ),

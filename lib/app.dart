@@ -1,5 +1,6 @@
 import 'package:admin_panel_ecommerce/common/localization/localization.dart';
-import 'package:admin_panel_ecommerce/utils/routes/observers/route_observer.dart';
+import 'package:admin_panel_ecommerce/core/configuration/binding/initial_binding.dart';
+// import 'package:admin_panel_ecommerce/utils/routes/observers/route_observer.dart';
 import 'package:admin_panel_ecommerce/utils/routes/pages.dart';
 import 'package:admin_panel_ecommerce/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,8 @@ class App extends StatelessWidget {
       translations: Localization(),
       defaultTransition: Transition.noTransition,
       scrollBehavior: MyCustomScrollBehavior(),
-      initialRoute: AppRoutes.login,
+      initialBinding: InitialBinding(),
+      initialRoute: AppRoutes.dashboard,
       getPages: AppPages.pages,
       // navigatorObservers: [CustomRouteObserver()],
       unknownRoute: GetPage(

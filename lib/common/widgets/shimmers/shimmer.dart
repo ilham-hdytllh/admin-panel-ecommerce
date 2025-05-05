@@ -4,16 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CustomShimmerEffect extends StatelessWidget {
-  const CustomShimmerEffect({
-    super.key,
-    required this.width,
-    required this.height,
-    this.radius = 15,
-    this.color,
-  });
+  const CustomShimmerEffect(
+      {super.key,
+      required this.width,
+      required this.height,
+      this.radius = 15,
+      this.color,
+      this.isCircle = false,
+      this.padding});
 
   final double width, height, radius;
   final Color? color;
+  final bool isCircle;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +25,13 @@ class CustomShimmerEffect extends StatelessWidget {
       baseColor: dark ? Colors.grey[850]! : Colors.grey[300]!,
       highlightColor: dark ? Colors.grey[700]! : Colors.grey[100]!,
       child: Container(
+        padding: padding,
         width: width,
         height: height,
         decoration: BoxDecoration(
+          shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
           color: color ?? (dark ? CustomColors.darkerGrey : CustomColors.white),
-          borderRadius: BorderRadius.circular(radius),
+          borderRadius: isCircle ? null : BorderRadius.circular(radius),
         ),
       ),
     );

@@ -25,6 +25,14 @@ class AppRoutes {
   static const createCustomer = "/createCustomer";
   static const editCustomer = "/editCustomer";
 
+  static const users = "/users";
+  static const createUser = "/createUser";
+  static const editUser = "/editUser";
+
+  static const settings = "/settings";
+
+  static const logout = "/logout";
+
   static List sidebarMenuItems = [
     dashboard,
     media,
@@ -32,6 +40,8 @@ class AppRoutes {
     products,
     categories,
     brands,
-    customers
+    customers,
+    users,
+    settings
   ];
 }
