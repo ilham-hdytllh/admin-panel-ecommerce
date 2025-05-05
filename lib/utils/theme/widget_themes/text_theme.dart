@@ -76,7 +76,7 @@ class CustomTextTheme {
     bodySmall: const TextStyle().copyWith(
         fontSize: 14.0,
         fontWeight: FontWeight.w400,
-        color: CustomColors.light.withOpacity(0.5)),
+        color: CustomColors.light.withValues(alpha: 0.5)),
     labelLarge: const TextStyle().copyWith(
         fontSize: 12.0,
         fontWeight: FontWeight.normal,
@@ -84,6 +84,6 @@ class CustomTextTheme {
     labelMedium: const TextStyle().copyWith(
         fontSize: 12.0,
         fontWeight: FontWeight.normal,
-        color: CustomColors.light.withOpacity(0.5)),
+        color: CustomColors.light.withValues(alpha: 0.5)),
   );
 }

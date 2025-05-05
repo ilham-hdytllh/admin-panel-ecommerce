@@ -5,6 +5,8 @@ import 'package:admin_panel_ecommerce/features/authentication/presentation/page/
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/reset_password/authentication_page_reset_password.dart';
 import 'package:admin_panel_ecommerce/features/dashboard/presentation/controller/dashboard_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/dashboard/presentation/page/dashboard/dashboard_page_main.dart';
+import 'package:admin_panel_ecommerce/features/media/presentation/controller/media_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/media/presentation/page/media_page_main.dart';
 import 'package:admin_panel_ecommerce/utils/routes/middlewares/auth_middleware.dart';
 import 'package:admin_panel_ecommerce/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -30,11 +32,8 @@ class AppPages {
     GetPage(
         name: AppRoutes.media,
         middlewares: [AuthMiddleware()],
-        page: () => SiteTemplates(
-              desktop: SizedBox(),
-              tablet: SizedBox(),
-              mobile: SizedBox(),
-            )),
+        binding: MediaBindingMain(),
+        page: () => MediaPageMain()),
     GetPage(
         name: AppRoutes.banners,
         middlewares: [AuthMiddleware()],

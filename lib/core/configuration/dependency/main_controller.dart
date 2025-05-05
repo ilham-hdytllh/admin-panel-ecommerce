@@ -20,7 +20,6 @@ class UserController extends GetxController {
 
   void fetchUserDetail() async {
     final uid = Supabase.instance.client.auth.currentUser?.id;
-    print(uid);
     try {
       if (uid == null) {
         return;
@@ -33,7 +32,6 @@ class UserController extends GetxController {
           CustomLoaders.errorSnackBar(title: failure.message);
         },
         (response) {
-          print(response.toString());
           currentAccount.value = response;
         },
       );
