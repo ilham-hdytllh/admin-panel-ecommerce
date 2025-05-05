@@ -5,9 +5,11 @@ class UserEntityData extends Equatable {
   final String? uid;
   final String? email;
   final String? name;
+  final String? photoUrl;
   final RoleEntityData? role;
 
-  const UserEntityData({this.uid, this.email, this.name, this.role});
+  const UserEntityData(
+      {this.uid, this.email, this.name, this.photoUrl, this.role});
 
   @override
   List<Object?> get props => [uid];

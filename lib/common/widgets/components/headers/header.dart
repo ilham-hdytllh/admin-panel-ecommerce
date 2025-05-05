@@ -105,8 +105,12 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                           width: 40,
                           padding: 2,
                           height: 40,
-                          imageType: ImageType.asset,
-                          image: AssetImages.user,
+                          imageType: (ctrl.currentAccount.value?.photoUrl ?? "")
+                                  .isNotEmpty
+                              ? ImageType.network
+                              : ImageType.asset,
+                          image: ctrl.currentAccount.value?.photoUrl ??
+                              AssetImages.user,
                         ),
                         SizedBox(
                           width: DimenSizes.sm,

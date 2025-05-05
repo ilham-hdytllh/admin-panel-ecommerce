@@ -43,15 +43,15 @@ class AuthenticationClientMain implements AuthenticationRepository {
     try {
       final response = await Supabase.instance.client
           .from('users')
-          .select('id, email, username, roles (id, name)')
+          .select('id, email, photo ,username, roles (id, name)')
           .eq('id', uid ?? "")
           .single();
-      print(response.toString());
 
       final userData = UserEntityData(
         uid: uid,
         email: response['email'] ?? "",
         name: response['username'] ?? "",
+        photoUrl: response['photo'] ?? "",
         role: RoleEntityData(
           id: response['roles']?['id'],
           name: response['roles']?['name'],
@@ -60,7 +60,6 @@ class AuthenticationClientMain implements AuthenticationRepository {
 
       return Right(userData);
     } on PostgrestException catch (e) {
-      print(e.message);
       return Left(ServiceFailure("Database error: ${e.message}"));
     } catch (e) {
       return Left(ServiceFailure("Unexpected error", error: e));
