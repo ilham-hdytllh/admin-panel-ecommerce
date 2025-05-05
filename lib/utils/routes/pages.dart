@@ -3,6 +3,8 @@ import 'package:admin_panel_ecommerce/features/authentication/presentation/contr
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/forget_password/authentication_page_forget_password.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/login/authentication_page_login.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/reset_password/authentication_page_reset_password.dart';
+import 'package:admin_panel_ecommerce/features/dashboard/presentation/controller/dashboard_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/dashboard/presentation/page/dashboard/dashboard_page_main.dart';
 import 'package:admin_panel_ecommerce/utils/routes/middlewares/auth_middleware.dart';
 import 'package:admin_panel_ecommerce/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -23,11 +25,8 @@ class AppPages {
     GetPage(
         name: AppRoutes.dashboard,
         middlewares: [AuthMiddleware()],
-        page: () => SiteTemplates(
-              desktop: SizedBox(),
-              tablet: SizedBox(),
-              mobile: SizedBox(),
-            )),
+        binding: DashboardBindingMain(),
+        page: () => DashboardPageMain()),
     GetPage(
         name: AppRoutes.media,
         middlewares: [AuthMiddleware()],

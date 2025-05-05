@@ -51,7 +51,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
               // Action
               actions: [
                 // Search Icon in Mobile
-                if (!CustomDeviceUtils.isMobileScreen(context))
+                if (CustomDeviceUtils.isMobileScreen(context))
                   IconButton(
                       onPressed: () {}, icon: Icon(Iconsax.search_normal)),
                 // Notification
