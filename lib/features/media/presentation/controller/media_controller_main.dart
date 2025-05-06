@@ -9,6 +9,9 @@ import 'package:admin_panel_ecommerce/features/media/domain/entity/media_entity_
 import 'package:admin_panel_ecommerce/features/media/domain/usecase/media_usecase_delete_image.dart';
 import 'package:admin_panel_ecommerce/features/media/domain/usecase/media_usecase_fetch_image.dart';
 import 'package:admin_panel_ecommerce/features/media/domain/usecase/media_usecase_upload_image.dart';
+import 'package:admin_panel_ecommerce/features/media/presentation/page/widgets/media_content.dart';
+import 'package:admin_panel_ecommerce/features/media/presentation/page/widgets/media_uploader.dart';
+import 'package:admin_panel_ecommerce/utils/constants/colors.dart';
 import 'package:admin_panel_ecommerce/utils/constants/enums.dart';
 import 'package:admin_panel_ecommerce/utils/constants/image_strings.dart';
 import 'package:admin_panel_ecommerce/utils/constants/sizes.dart';
@@ -239,5 +242,34 @@ class MediaControllerMain extends GetxController {
       CustomFullScreenLoader.stopLoading();
       CustomLoaders.successSnackBar(title: "Success", message: response);
     });
+  }
+
+  Future<List<MediaEntityImage>?> selectImagesFromMedia(
+      {List<String>? selectedUrls,
+      bool allowSelection = false,
+      bool multipleSelection = false}) async {
+    showImageUploaderSection.value = true;
+
+    List<MediaEntityImage>? selectedImages =
+        await Get.bottomSheet<List<MediaEntityImage>>(
+            FractionallySizedBox(
+              heightFactor: 1,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    MediaUploader(),
+                    MediaContent(
+                      allowSelection: allowSelection,
+                      alreadySelectedUrls: selectedUrls ?? [],
+                      allowMultipleSelection: multipleSelection,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            isScrollControlled: true,
+            backgroundColor: CustomColors.primaryBackground);
+
+    return selectedImages;
   }
 }
