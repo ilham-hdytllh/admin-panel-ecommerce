@@ -7,6 +7,8 @@ import 'package:admin_panel_ecommerce/features/dashboard/presentation/controller
 import 'package:admin_panel_ecommerce/features/dashboard/presentation/page/dashboard/dashboard_page_main.dart';
 import 'package:admin_panel_ecommerce/features/media/presentation/controller/media_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/media/presentation/page/media_page_main.dart';
+import 'package:admin_panel_ecommerce/features/product/presentation/controller/product_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/product/presentation/page/product_page_main.dart';
 import 'package:admin_panel_ecommerce/utils/routes/middlewares/auth_middleware.dart';
 import 'package:admin_panel_ecommerce/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -42,5 +44,29 @@ class AppPages {
               tablet: SizedBox(),
               mobile: SizedBox(),
             )),
+    GetPage(
+      name: AppRoutes.products,
+      middlewares: [AuthMiddleware()],
+      binding: ProductBindingMain(),
+      page: () => ProductPageMain(),
+      children: [
+        GetPage(
+            name: AppRoutes.createProduct,
+            middlewares: [AuthMiddleware()],
+            page: () => SiteTemplates(
+                  desktop: SizedBox(),
+                  tablet: SizedBox(),
+                  mobile: SizedBox(),
+                )),
+        GetPage(
+            name: AppRoutes.editProduct,
+            middlewares: [AuthMiddleware()],
+            page: () => SiteTemplates(
+                  desktop: SizedBox(),
+                  tablet: SizedBox(),
+                  mobile: SizedBox(),
+                )),
+      ],
+    ),
   ];
 }

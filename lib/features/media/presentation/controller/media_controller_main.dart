@@ -246,7 +246,7 @@ class MediaControllerMain extends GetxController {
 
   Future<List<MediaEntityImage>?> selectImagesFromMedia(
       {List<String>? selectedUrls,
-      bool allowSelection = false,
+      bool allowSelection = true,
       bool multipleSelection = false}) async {
     showImageUploaderSection.value = true;
 
@@ -255,15 +255,18 @@ class MediaControllerMain extends GetxController {
             FractionallySizedBox(
               heightFactor: 1,
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    MediaUploader(),
-                    MediaContent(
-                      allowSelection: allowSelection,
-                      alreadySelectedUrls: selectedUrls ?? [],
-                      allowMultipleSelection: multipleSelection,
-                    )
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.all(DimenSizes.defaultSpace),
+                  child: Column(
+                    children: [
+                      MediaUploader(),
+                      MediaContent(
+                        allowSelection: allowSelection,
+                        alreadySelectedUrls: selectedUrls ?? [],
+                        allowMultipleSelection: multipleSelection,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -29,6 +29,7 @@ class MediaContent extends StatelessWidget {
   final Function(List<MediaEntityImage> selectedImages)? onImageSelected;
   @override
   Widget build(BuildContext context) {
+    bool loadedPreviousSelected = false;
     final mediaController = Get.find<MediaControllerMain>();
     return CustomRoundedContainer(
       child: Column(
@@ -36,6 +37,7 @@ class MediaContent extends StatelessWidget {
         children: [
           // Media Image Header
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
@@ -53,56 +55,78 @@ class MediaContent extends StatelessWidget {
 
           // Show Media
           Obx(
-            () => Visibility(
-              visible: !mediaController.isLoading.value,
-              replacement:
-                  SizedBox(height: 200, child: CustomLoaderAnimation()),
-              child: Visibility(
-                visible: mediaController.allImages.isNotEmpty,
-                replacement: CustomAnimationLoaderWidget(
-                  width: 150,
-                  height: 150,
-                  text: "Select your Desired Folder",
-                  animation: AssetImages.packageAnimation,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                child: Wrap(
-                    alignment: WrapAlignment.start,
-                    spacing: DimenSizes.spaceBtwItems / 2,
-                    runSpacing: DimenSizes.spaceBtwItems / 2,
-                    children: mediaController.allImages
-                        .map(
-                          (image) => GestureDetector(
-                            onTap: () =>
-                                Get.dialog(ViewImageDetail(image: image)),
-                            child: SizedBox(
-                              width: 140,
-                              height: 180,
-                              child: Column(
-                                children: [
-                                  if (allowSelection) ...{
-                                    _buildImageCardWithCheckbox(image)
-                                  } else ...{
-                                    _buildImageCard(image),
-                                  },
-                                  Expanded(
-                                      child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: DimenSizes.sm),
-                                    child: Text(
-                                      image.fileName,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ))
-                                ],
+            () {
+              if (!loadedPreviousSelected) {
+                if (alreadySelectedUrls != null &&
+                    alreadySelectedUrls!.isNotEmpty) {
+                  final selectedUrlSet = Set<String>.from(alreadySelectedUrls!);
+
+                  for (var image in mediaController.allImages) {
+                    image.isSelected.value = selectedUrlSet.contains(image.url);
+
+                    if (image.isSelected.value) {
+                      selectedImages.add(image);
+                    }
+                  }
+                } else {
+                  for (var image in mediaController.allImages) {
+                    image.isSelected.value = false;
+                  }
+                }
+                loadedPreviousSelected = true;
+              }
+
+              return Visibility(
+                visible: !mediaController.isLoading.value,
+                replacement:
+                    SizedBox(height: 200, child: CustomLoaderAnimation()),
+                child: Visibility(
+                  visible: mediaController.allImages.isNotEmpty,
+                  replacement: CustomAnimationLoaderWidget(
+                    width: 150,
+                    height: 150,
+                    text: "Select your Desired Folder",
+                    animation: AssetImages.packageAnimation,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  child: Wrap(
+                      alignment: WrapAlignment.start,
+                      spacing: DimenSizes.spaceBtwItems / 2,
+                      runSpacing: DimenSizes.spaceBtwItems / 2,
+                      children: mediaController.allImages
+                          .map(
+                            (image) => GestureDetector(
+                              onTap: () =>
+                                  Get.dialog(ViewImageDetail(image: image)),
+                              child: SizedBox(
+                                width: 140,
+                                height: 180,
+                                child: Column(
+                                  children: [
+                                    if (allowSelection) ...{
+                                      _buildImageCardWithCheckbox(image)
+                                    } else ...{
+                                      _buildImageCard(image),
+                                    },
+                                    Expanded(
+                                        child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: DimenSizes.sm),
+                                      child: Text(
+                                        image.fileName,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ))
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        )
-                        .toList()),
-              ),
-            ),
+                          )
+                          .toList()),
+                ),
+              );
+            },
           ),
 
           Padding(

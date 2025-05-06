@@ -10,8 +10,8 @@ class AppRoutes {
   static const editBanner = "/editBanner";
 
   static const products = "/products";
-  static const createProduct = "/createProduct";
-  static const editProduct = "/editProduct";
+  static const createProduct = "/create-product";
+  static const editProduct = "/edit-product";
 
   static const categories = "/categories";
   static const createCategory = "/createCategory";

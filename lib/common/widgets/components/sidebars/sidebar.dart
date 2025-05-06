@@ -59,6 +59,11 @@ class Sidebar extends StatelessWidget {
                       icon: Iconsax.picture_frame,
                       itemName: "Banner",
                     ),
+                    MenuItemSidebar(
+                      route: AppRoutes.products,
+                      icon: Iconsax.shop,
+                      itemName: "Product",
+                    ),
 
                     Text(
                       'MENU',
