@@ -54,16 +54,7 @@ class Sidebar extends StatelessWidget {
                       icon: Iconsax.image,
                       itemName: "Media",
                     ),
-                    MenuItemSidebar(
-                      route: AppRoutes.banners,
-                      icon: Iconsax.picture_frame,
-                      itemName: "Banner",
-                    ),
-                    MenuItemSidebar(
-                      route: AppRoutes.products,
-                      icon: Iconsax.shop,
-                      itemName: "Product",
-                    ),
+
                     MenuItemSidebar(
                       route: AppRoutes.categories,
                       icon: Iconsax.menu,
@@ -71,8 +62,18 @@ class Sidebar extends StatelessWidget {
                     ),
                     MenuItemSidebar(
                       route: AppRoutes.brands,
-                      icon: Iconsax.box,
+                      icon: Iconsax.dcube,
                       itemName: "Brand",
+                    ),
+                    MenuItemSidebar(
+                      route: AppRoutes.banners,
+                      icon: Iconsax.picture_frame,
+                      itemName: "Banner",
+                    ),
+                    MenuItemSidebar(
+                      route: AppRoutes.products,
+                      icon: Iconsax.shopping_bag,
+                      itemName: "Product",
                     ),
                     SizedBox(height: DimenSizes.spaceBtwItems),
                     Text(
@@ -85,12 +86,12 @@ class Sidebar extends StatelessWidget {
 
                     // OTHER ITEMS
                     MenuItemSidebar(
-                      route: AppRoutes.users,
+                      route: AppRoutes.profile,
                       icon: Iconsax.user,
                       itemName: "Profile",
                     ),
                     MenuItemSidebar(
-                      route: AppRoutes.settings,
+                      route: AppRoutes.setting,
                       icon: Iconsax.setting_2,
                       itemName: "Setting",
                     ),

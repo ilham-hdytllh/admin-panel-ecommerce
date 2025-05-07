@@ -21,6 +21,10 @@ import 'package:admin_panel_ecommerce/features/media/presentation/controller/med
 import 'package:admin_panel_ecommerce/features/media/presentation/page/media_page_main.dart';
 import 'package:admin_panel_ecommerce/features/product/presentation/controller/product_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/product/presentation/page/product_page_main.dart';
+import 'package:admin_panel_ecommerce/features/profile/presentation/controller/profile_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/profile/presentation/page/profile_page_main.dart';
+import 'package:admin_panel_ecommerce/features/setting/presentation/controller/setting_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/setting/presentation/page/profile_page_main.dart';
 import 'package:admin_panel_ecommerce/utils/routes/middlewares/auth_middleware.dart';
 import 'package:admin_panel_ecommerce/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -112,5 +116,15 @@ class AppPages {
               tablet: SizedBox(),
               mobile: SizedBox(),
             )),
+    GetPage(
+        name: AppRoutes.profile,
+        middlewares: [AuthMiddleware()],
+        binding: ProfileBindingMain(),
+        page: () => ProfilePageMain()),
+    GetPage(
+        name: AppRoutes.setting,
+        middlewares: [AuthMiddleware()],
+        binding: SettingBindingMain(),
+        page: () => SettingPageMain()),
   ];
 }
