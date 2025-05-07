@@ -3,6 +3,10 @@ import 'package:admin_panel_ecommerce/features/authentication/presentation/contr
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/forget_password/authentication_page_forget_password.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/login/authentication_page_login.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/reset_password/authentication_page_reset_password.dart';
+import 'package:admin_panel_ecommerce/features/category/presentation/controller/category_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/category/presentation/page/create/category_page_create.dart';
+import 'package:admin_panel_ecommerce/features/category/presentation/page/edit/category_page_edit.dart';
+import 'package:admin_panel_ecommerce/features/category/presentation/page/main/category_page_main.dart';
 import 'package:admin_panel_ecommerce/features/dashboard/presentation/controller/dashboard_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/dashboard/presentation/page/dashboard/dashboard_page_main.dart';
 import 'package:admin_panel_ecommerce/features/media/presentation/controller/media_binding_main.dart';
@@ -45,28 +49,54 @@ class AppPages {
               mobile: SizedBox(),
             )),
     GetPage(
+      name: AppRoutes.categories,
+      middlewares: [AuthMiddleware()],
+      binding: CategoryBindingMain(),
+      page: () => CategoryPageMain(),
+    ),
+    GetPage(
+        name: AppRoutes.createCategory,
+        middlewares: [AuthMiddleware()],
+        page: () => CategoryPageCreate()),
+    GetPage(
+        name: AppRoutes.editCategory,
+        middlewares: [AuthMiddleware()],
+        page: () => CategoryPageEdit()),
+    // GetPage(
+    //   name: AppRoutes.brands,
+    //   middlewares: [AuthMiddleware()],
+    //   binding: BrandBindingMain(),
+    //   page: () => BrandPageMain(),
+    // ),
+    // GetPage(
+    //     name: AppRoutes.createBrand,
+    //     middlewares: [AuthMiddleware()],
+    //     page: () => BrandPageCreate()),
+    // GetPage(
+    //     name: AppRoutes.editBrand,
+    //     middlewares: [AuthMiddleware()],
+    //     page: () => BrandPageEdit()),
+    GetPage(
       name: AppRoutes.products,
       middlewares: [AuthMiddleware()],
       binding: ProductBindingMain(),
       page: () => ProductPageMain(),
-      children: [
-        GetPage(
-            name: AppRoutes.createProduct,
-            middlewares: [AuthMiddleware()],
-            page: () => SiteTemplates(
-                  desktop: SizedBox(),
-                  tablet: SizedBox(),
-                  mobile: SizedBox(),
-                )),
-        GetPage(
-            name: AppRoutes.editProduct,
-            middlewares: [AuthMiddleware()],
-            page: () => SiteTemplates(
-                  desktop: SizedBox(),
-                  tablet: SizedBox(),
-                  mobile: SizedBox(),
-                )),
-      ],
     ),
+    GetPage(
+        name: AppRoutes.createProduct,
+        middlewares: [AuthMiddleware()],
+        page: () => SiteTemplates(
+              desktop: SizedBox(),
+              tablet: SizedBox(),
+              mobile: SizedBox(),
+            )),
+    GetPage(
+        name: AppRoutes.editProduct,
+        middlewares: [AuthMiddleware()],
+        page: () => SiteTemplates(
+              desktop: SizedBox(),
+              tablet: SizedBox(),
+              mobile: SizedBox(),
+            )),
   ];
 }

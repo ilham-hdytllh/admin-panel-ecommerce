@@ -64,9 +64,19 @@ class Sidebar extends StatelessWidget {
                       icon: Iconsax.shop,
                       itemName: "Product",
                     ),
-
+                    MenuItemSidebar(
+                      route: AppRoutes.categories,
+                      icon: Iconsax.menu,
+                      itemName: "Category",
+                    ),
+                    MenuItemSidebar(
+                      route: AppRoutes.brands,
+                      icon: Iconsax.box,
+                      itemName: "Brand",
+                    ),
+                    SizedBox(height: DimenSizes.spaceBtwItems),
                     Text(
-                      'MENU',
+                      'OTHER',
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!

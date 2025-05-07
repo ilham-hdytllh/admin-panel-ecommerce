@@ -6,28 +6,28 @@ class AppRoutes {
   static const media = "/media";
 
   static const banners = "/banners";
-  static const createBanner = "/createBanner";
-  static const editBanner = "/editBanner";
+  static const createBanner = "$banners/create-banner";
+  static const editBanner = "$banners/edit-banner";
 
   static const products = "/products";
-  static const createProduct = "/create-product";
-  static const editProduct = "/edit-product";
+  static const createProduct = "$products/create-product";
+  static const editProduct = "$products/edit-product";
 
   static const categories = "/categories";
-  static const createCategory = "/createCategory";
-  static const editCategory = "/editCategory";
+  static const createCategory = "$categories/create-category";
+  static const editCategory = "$categories/edit-category";
 
   static const brands = "/brands";
-  static const createBrand = "/createBrand";
-  static const editBrand = "/editBrand";
+  static const createBrand = "$brands/create-brand";
+  static const editBrand = "$brands/edit-brand";
 
   static const customers = "/customers";
-  static const createCustomer = "/createCustomer";
-  static const editCustomer = "/editCustomer";
+  static const createCustomer = "$customers/create-customer";
+  static const editCustomer = "$customers/edit-customer";
 
   static const users = "/users";
-  static const createUser = "/createUser";
-  static const editUser = "/editUser";
+  static const createUser = "$users/create-user";
+  static const editUser = "$users/edit-user";
 
   static const settings = "/settings";
 

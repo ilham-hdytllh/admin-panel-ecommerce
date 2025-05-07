@@ -69,8 +69,6 @@ class MediaClientMain implements MediaRepository {
             .order('created_at', ascending: false);
       }
 
-      print(response.toString());
-
       if (response.isEmpty) {
         return Right([]);
       }

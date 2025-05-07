@@ -14,6 +14,7 @@ class AuthenticationControllerLogin extends GetxController {
   final passwordController = TextEditingController();
   // Signin Usecase
   final usecaseSignup = AuthenticationUsecaseSignin(AuthenticationClientMain());
+  Rx<bool> showPassword = Rx(true);
   // late BuildContext _context;
 
   @override

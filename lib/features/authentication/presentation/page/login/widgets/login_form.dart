@@ -27,26 +27,27 @@ class LoginForm extends StatelessWidget {
           ),
           SizedBox(height: DimenSizes.spaceBtwInputFields),
           // PASSWORD
-          TextFormField(
-            controller: loginController.passwordController,
-            decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
-                suffixIcon:
-                    IconButton(onPressed: () {}, icon: Icon(Iconsax.eye_slash)),
-                labelText: getLocale(StringKey.password)),
+          Obx(
+            () => TextFormField(
+              controller: loginController.passwordController,
+              obscureText: loginController.showPassword.value,
+              decoration: InputDecoration(
+                  prefixIcon: Icon(Iconsax.password_check),
+                  suffixIcon: IconButton(
+                      onPressed: () => loginController.showPassword.value =
+                          !loginController.showPassword.value,
+                      icon: loginController.showPassword.value
+                          ? Icon(Iconsax.eye_slash)
+                          : Icon(Iconsax.eye)),
+                  labelText: getLocale(StringKey.password)),
+            ),
           ),
           SizedBox(height: DimenSizes.spaceBtwInputFields / 2),
           // REMEMBER ME
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Checkbox(value: true, onChanged: (val) {}),
-                  Text(getLocale(StringKey.rememberMe))
-                ],
-              ),
               TextButton(
                   onPressed: () => Get.toNamed(AppRoutes.forgetPassword),
                   child: Text(getLocale(StringKey.forgetPassword)))

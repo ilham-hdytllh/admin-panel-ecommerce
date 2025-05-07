@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class PageMediaDesktop extends StatelessWidget {
-  const PageMediaDesktop({super.key});
+class PageMedia extends StatelessWidget {
+  const PageMedia({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class PageMediaDesktop extends StatelessWidget {
                 children: [
                   BreadcrumbWithHeading(
                       heading: "Media",
-                      breadCumbItems: [],
+                      breadCumbItems: ["Media"],
                       returnToPreviousPage: false),
                   SizedBox(
                     width: DimenSizes.buttonWidth * 1.5,
