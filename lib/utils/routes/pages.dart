@@ -3,6 +3,10 @@ import 'package:admin_panel_ecommerce/features/authentication/presentation/contr
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/forget_password/authentication_page_forget_password.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/login/authentication_page_login.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/reset_password/authentication_page_reset_password.dart';
+import 'package:admin_panel_ecommerce/features/banner/presentation/controller/banner_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/banner/presentation/page/create/banner_page_create.dart';
+import 'package:admin_panel_ecommerce/features/banner/presentation/page/edit/banner_page_edit.dart';
+import 'package:admin_panel_ecommerce/features/banner/presentation/page/main/banner_page_main.dart';
 import 'package:admin_panel_ecommerce/features/brand/presentation/controller/brand_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/brand/presentation/page/create/brand_page_create.dart';
 import 'package:admin_panel_ecommerce/features/brand/presentation/page/edit/brand_page_edit.dart';
@@ -45,13 +49,19 @@ class AppPages {
         binding: MediaBindingMain(),
         page: () => MediaPageMain()),
     GetPage(
-        name: AppRoutes.banners,
+      name: AppRoutes.banners,
+      middlewares: [AuthMiddleware()],
+      binding: BannerBindingMain(),
+      page: () => BannerPageMain(),
+    ),
+    GetPage(
+        name: AppRoutes.createBanner,
         middlewares: [AuthMiddleware()],
-        page: () => SiteTemplates(
-              desktop: SizedBox(),
-              tablet: SizedBox(),
-              mobile: SizedBox(),
-            )),
+        page: () => BannerPageCreate()),
+    GetPage(
+        name: AppRoutes.editBanner,
+        middlewares: [AuthMiddleware()],
+        page: () => BannerPageEdit()),
     GetPage(
       name: AppRoutes.categories,
       middlewares: [AuthMiddleware()],
