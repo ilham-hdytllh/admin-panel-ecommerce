@@ -1,7 +1,5 @@
 import 'package:admin_panel_ecommerce/utils/device/device_utility.dart';
-import 'package:admin_panel_ecommerce/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TableHeader extends StatelessWidget {
@@ -10,10 +8,12 @@ class TableHeader extends StatelessWidget {
       this.onPressed,
       required this.buttonText,
       this.searchController,
-      this.searchOnChange});
+      this.searchOnChange,
+      required this.hintText});
 
   final Function()? onPressed;
   final String buttonText;
+  final String hintText;
   final TextEditingController? searchController;
   final Function(String)? searchOnChange;
 
@@ -28,8 +28,7 @@ class TableHeader extends StatelessWidget {
                 SizedBox(
                   width: 200,
                   child: ElevatedButton(
-                      onPressed: () => Get.toNamed(AppRoutes.createCategory),
-                      child: Text("Create New Category")),
+                      onPressed: onPressed, child: Text(buttonText)),
                 )
               ],
             )),
@@ -37,8 +36,7 @@ class TableHeader extends StatelessWidget {
             flex: CustomDeviceUtils.isDesktopScreen(context) ? 2 : 1,
             child: TextFormField(
               decoration: InputDecoration(
-                  hintText: "Search Category",
-                  prefixIcon: Icon(Iconsax.search_normal)),
+                  hintText: hintText, prefixIcon: Icon(Iconsax.search_normal)),
             ))
       ],
     );

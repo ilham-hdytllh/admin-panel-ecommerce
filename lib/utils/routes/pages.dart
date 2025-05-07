@@ -3,6 +3,10 @@ import 'package:admin_panel_ecommerce/features/authentication/presentation/contr
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/forget_password/authentication_page_forget_password.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/login/authentication_page_login.dart';
 import 'package:admin_panel_ecommerce/features/authentication/presentation/page/reset_password/authentication_page_reset_password.dart';
+import 'package:admin_panel_ecommerce/features/brand/presentation/controller/brand_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/brand/presentation/page/create/brand_page_create.dart';
+import 'package:admin_panel_ecommerce/features/brand/presentation/page/edit/brand_page_edit.dart';
+import 'package:admin_panel_ecommerce/features/brand/presentation/page/main/brand_page_main.dart';
 import 'package:admin_panel_ecommerce/features/category/presentation/controller/category_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/category/presentation/page/create/category_page_create.dart';
 import 'package:admin_panel_ecommerce/features/category/presentation/page/edit/category_page_edit.dart';
@@ -62,20 +66,20 @@ class AppPages {
         name: AppRoutes.editCategory,
         middlewares: [AuthMiddleware()],
         page: () => CategoryPageEdit()),
-    // GetPage(
-    //   name: AppRoutes.brands,
-    //   middlewares: [AuthMiddleware()],
-    //   binding: BrandBindingMain(),
-    //   page: () => BrandPageMain(),
-    // ),
-    // GetPage(
-    //     name: AppRoutes.createBrand,
-    //     middlewares: [AuthMiddleware()],
-    //     page: () => BrandPageCreate()),
-    // GetPage(
-    //     name: AppRoutes.editBrand,
-    //     middlewares: [AuthMiddleware()],
-    //     page: () => BrandPageEdit()),
+    GetPage(
+      name: AppRoutes.brands,
+      middlewares: [AuthMiddleware()],
+      binding: BrandBindingMain(),
+      page: () => BrandPageMain(),
+    ),
+    GetPage(
+        name: AppRoutes.createBrand,
+        middlewares: [AuthMiddleware()],
+        page: () => BrandPageCreate()),
+    GetPage(
+        name: AppRoutes.editBrand,
+        middlewares: [AuthMiddleware()],
+        page: () => BrandPageEdit()),
     GetPage(
       name: AppRoutes.products,
       middlewares: [AuthMiddleware()],

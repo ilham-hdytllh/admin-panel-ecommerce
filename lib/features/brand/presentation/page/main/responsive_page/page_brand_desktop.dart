@@ -1,14 +1,14 @@
 import 'package:admin_panel_ecommerce/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import 'package:admin_panel_ecommerce/common/widgets/containers/rounded_container.dart';
 import 'package:admin_panel_ecommerce/common/widgets/data_table/table_header.dart';
-import 'package:admin_panel_ecommerce/features/category/presentation/page/main/table/category_data_table.dart';
+import 'package:admin_panel_ecommerce/features/brand/presentation/page/main/table/brand_data_table.dart';
 import 'package:admin_panel_ecommerce/utils/constants/sizes.dart';
 import 'package:admin_panel_ecommerce/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PageCategoryDesktop extends StatelessWidget {
-  const PageCategoryDesktop({super.key});
+class PageBrandDesktop extends StatelessWidget {
+  const PageBrandDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,8 @@ class PageCategoryDesktop extends StatelessWidget {
             children: [
               // HEADER
               BreadcrumbWithHeading(
-                  heading: "Categories",
-                  breadCumbItems: ["Categories"],
+                  heading: "Brands",
+                  breadCumbItems: ["Brands"],
                   returnToPreviousPage: false),
               SizedBox(height: DimenSizes.spaceBtwSections),
 
@@ -30,13 +30,13 @@ class PageCategoryDesktop extends StatelessWidget {
                   children: [
                     // Table Header
                     TableHeader(
-                        buttonText: 'Create New Category',
-                        hintText: 'Search Category',
-                        onPressed: () => Get.toNamed(AppRoutes.createCategory)),
+                        buttonText: 'Create New Brand',
+                        hintText: "Search Brand",
+                        onPressed: () => Get.toNamed(AppRoutes.createBrand)),
                     SizedBox(height: DimenSizes.spaceBtwItems),
 
-                    // Category Table
-                    CategoryDataTable(),
+                    // Brand Table
+                    BrandDataTable(),
                   ],
                 ),
               ),
