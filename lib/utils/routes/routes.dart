@@ -25,6 +25,9 @@ class AppRoutes {
   static const createCustomer = "$customers/create-customer";
   static const editCustomer = "$customers/edit-customer";
 
+  static const orders = "/orders";
+  static const detailOrder = "$orders/detail-order";
+
   static const profile = "/profile";
   static const setting = "/setting";
 
@@ -38,6 +41,7 @@ class AppRoutes {
     categories,
     brands,
     customers,
+    orders,
     profile,
     setting
   ];

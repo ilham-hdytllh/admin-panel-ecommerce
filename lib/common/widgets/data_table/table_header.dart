@@ -6,13 +6,13 @@ class TableHeader extends StatelessWidget {
   const TableHeader(
       {super.key,
       this.onPressed,
-      required this.buttonText,
+      this.buttonText,
       this.searchController,
       this.searchOnChange,
       required this.hintText});
 
   final Function()? onPressed;
-  final String buttonText;
+  final String? buttonText;
   final String hintText;
   final TextEditingController? searchController;
   final Function(String)? searchOnChange;
@@ -25,10 +25,13 @@ class TableHeader extends StatelessWidget {
             flex: CustomDeviceUtils.isDesktopScreen(context) ? 3 : 1,
             child: Row(
               children: [
-                SizedBox(
-                  width: 200,
-                  child: ElevatedButton(
-                      onPressed: onPressed, child: Text(buttonText)),
+                Visibility(
+                  visible: buttonText != null,
+                  child: SizedBox(
+                    width: 200,
+                    child: ElevatedButton(
+                        onPressed: onPressed, child: Text(buttonText ?? "")),
+                  ),
                 )
               ],
             )),

@@ -54,7 +54,16 @@ class Sidebar extends StatelessWidget {
                       icon: Iconsax.image,
                       itemName: "Media",
                     ),
-
+                    MenuItemSidebar(
+                      route: AppRoutes.banners,
+                      icon: Iconsax.picture_frame,
+                      itemName: "Banner",
+                    ),
+                    MenuItemSidebar(
+                      route: AppRoutes.products,
+                      icon: Iconsax.shopping_bag,
+                      itemName: "Product",
+                    ),
                     MenuItemSidebar(
                       route: AppRoutes.categories,
                       icon: Iconsax.menu,
@@ -66,14 +75,14 @@ class Sidebar extends StatelessWidget {
                       itemName: "Brand",
                     ),
                     MenuItemSidebar(
-                      route: AppRoutes.banners,
-                      icon: Iconsax.picture_frame,
-                      itemName: "Banner",
+                      route: AppRoutes.customers,
+                      icon: Iconsax.people,
+                      itemName: "Customers",
                     ),
                     MenuItemSidebar(
-                      route: AppRoutes.products,
-                      icon: Iconsax.shopping_bag,
-                      itemName: "Product",
+                      route: AppRoutes.orders,
+                      icon: Iconsax.task_square,
+                      itemName: "Order",
                     ),
                     SizedBox(height: DimenSizes.spaceBtwItems),
                     Text(

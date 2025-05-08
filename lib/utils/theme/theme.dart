@@ -27,6 +27,12 @@ class TAppTheme {
     elevatedButtonTheme: CustomElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: CustomOutlinedButtonTheme.lightOutlinedButtonTheme,
     inputDecorationTheme: CustomTextFormFieldTheme.lightInputDecorationTheme,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    splashFactory: NoSplash.splashFactory,
+    shadowColor: Colors.transparent,
+    hoverColor: Colors.transparent,
+    canvasColor: Colors.transparent,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -44,5 +50,11 @@ class TAppTheme {
     elevatedButtonTheme: CustomElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: CustomOutlinedButtonTheme.darkOutlinedButtonTheme,
     inputDecorationTheme: CustomTextFormFieldTheme.darkInputDecorationTheme,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    splashFactory: NoSplash.splashFactory,
+    shadowColor: Colors.transparent,
+    hoverColor: Colors.transparent,
+    canvasColor: Colors.transparent,
   );
 }

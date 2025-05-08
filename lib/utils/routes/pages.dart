@@ -19,6 +19,9 @@ import 'package:admin_panel_ecommerce/features/dashboard/presentation/controller
 import 'package:admin_panel_ecommerce/features/dashboard/presentation/page/dashboard/dashboard_page_main.dart';
 import 'package:admin_panel_ecommerce/features/media/presentation/controller/media_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/media/presentation/page/media_page_main.dart';
+import 'package:admin_panel_ecommerce/features/order/presentation/controller/order_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/order/presentation/page/detail/order_page_detail.dart';
+import 'package:admin_panel_ecommerce/features/order/presentation/page/main/order_page_main.dart';
 import 'package:admin_panel_ecommerce/features/product/presentation/controller/product_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/product/presentation/page/product_page_main.dart';
 import 'package:admin_panel_ecommerce/features/profile/presentation/controller/profile_binding_main.dart';
@@ -116,6 +119,15 @@ class AppPages {
               tablet: SizedBox(),
               mobile: SizedBox(),
             )),
+    GetPage(
+        name: AppRoutes.orders,
+        middlewares: [AuthMiddleware()],
+        binding: OrderBindingMain(),
+        page: () => OrderPageMain()),
+    GetPage(
+        name: AppRoutes.detailOrder,
+        middlewares: [AuthMiddleware()],
+        page: () => OrderPageDetail()),
     GetPage(
         name: AppRoutes.profile,
         middlewares: [AuthMiddleware()],
