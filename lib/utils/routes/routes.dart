@@ -22,8 +22,7 @@ class AppRoutes {
   static const editBrand = "$brands/edit-brand";
 
   static const customers = "/customers";
-  static const createCustomer = "$customers/create-customer";
-  static const editCustomer = "$customers/edit-customer";
+  static const detailCustomer = "$customers/detail-customer";
 
   static const orders = "/orders";
   static const detailOrder = "$orders/detail-order";

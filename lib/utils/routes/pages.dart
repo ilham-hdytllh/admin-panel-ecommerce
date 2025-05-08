@@ -15,6 +15,9 @@ import 'package:admin_panel_ecommerce/features/category/presentation/controller/
 import 'package:admin_panel_ecommerce/features/category/presentation/page/create/category_page_create.dart';
 import 'package:admin_panel_ecommerce/features/category/presentation/page/edit/category_page_edit.dart';
 import 'package:admin_panel_ecommerce/features/category/presentation/page/main/category_page_main.dart';
+import 'package:admin_panel_ecommerce/features/customer/presentation/controller/customer_binding_main.dart';
+import 'package:admin_panel_ecommerce/features/customer/presentation/page/detail/customer_page_detail.dart';
+import 'package:admin_panel_ecommerce/features/customer/presentation/page/main/customer_page_main.dart';
 import 'package:admin_panel_ecommerce/features/dashboard/presentation/controller/dashboard_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/dashboard/presentation/page/dashboard/dashboard_page_main.dart';
 import 'package:admin_panel_ecommerce/features/media/presentation/controller/media_binding_main.dart';
@@ -119,6 +122,16 @@ class AppPages {
               tablet: SizedBox(),
               mobile: SizedBox(),
             )),
+    GetPage(
+      name: AppRoutes.customers,
+      middlewares: [AuthMiddleware()],
+      binding: CustomerBindingMain(),
+      page: () => CustomerPageMain(),
+    ),
+    GetPage(
+        name: AppRoutes.detailCustomer,
+        middlewares: [AuthMiddleware()],
+        page: () => CustomerPageDetail()),
     GetPage(
         name: AppRoutes.orders,
         middlewares: [AuthMiddleware()],
