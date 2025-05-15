@@ -26,7 +26,8 @@ import 'package:admin_panel_ecommerce/features/order/presentation/controller/ord
 import 'package:admin_panel_ecommerce/features/order/presentation/page/detail/order_page_detail.dart';
 import 'package:admin_panel_ecommerce/features/order/presentation/page/main/order_page_main.dart';
 import 'package:admin_panel_ecommerce/features/product/presentation/controller/product_binding_main.dart';
-import 'package:admin_panel_ecommerce/features/product/presentation/page/product_page_main.dart';
+import 'package:admin_panel_ecommerce/features/product/presentation/page/create/product_page_create.dart';
+import 'package:admin_panel_ecommerce/features/product/presentation/page/main/product_page_main.dart';
 import 'package:admin_panel_ecommerce/features/profile/presentation/controller/profile_binding_main.dart';
 import 'package:admin_panel_ecommerce/features/profile/presentation/page/profile_page_main.dart';
 import 'package:admin_panel_ecommerce/features/setting/presentation/controller/setting_binding_main.dart';
@@ -109,11 +110,7 @@ class AppPages {
     GetPage(
         name: AppRoutes.createProduct,
         middlewares: [AuthMiddleware()],
-        page: () => SiteTemplates(
-              desktop: SizedBox(),
-              tablet: SizedBox(),
-              mobile: SizedBox(),
-            )),
+        page: () => ProductPageCreate()),
     GetPage(
         name: AppRoutes.editProduct,
         middlewares: [AuthMiddleware()],
