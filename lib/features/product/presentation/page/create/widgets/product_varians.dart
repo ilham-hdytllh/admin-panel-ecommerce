@@ -34,4 +34,6 @@ class ProductVariations extends StatelessWidget {
 
 _buildNoVariationsMessage() {}
 
-Widget _buildVariationnTile() {}
+Widget _buildVariationnTile() {
+  return SizedBox();
+}

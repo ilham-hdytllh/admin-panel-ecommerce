@@ -9,7 +9,7 @@ import 'package:admin_panel_ecommerce/utils/constants/sizes.dart';
 import 'package:admin_panel_ecommerce/utils/device/device_utility.dart';
 import 'package:admin_panel_ecommerce/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 class PageProductCreateDesktop extends StatelessWidget {
   const PageProductCreateDesktop({super.key});
@@ -70,7 +70,7 @@ class PageProductCreateDesktop extends StatelessWidget {
                         SizedBox(height: DimenSizes.spaceBtwSections),
 
                         // VARIATIONS
-                        ProductVariations(),
+                        // ProductVariations(),
                       ],
                     ),
                   ),
@@ -79,7 +79,7 @@ class PageProductCreateDesktop extends StatelessWidget {
                     child: Column(
                       children: [
                         // THUMBNAIL
-                        ProductThumnailImage(),
+                        // ProductThumnailImage(),
                         SizedBox(height: DimenSizes.spaceBtwSections),
 
                         // PRODUCT IMAGES
@@ -92,23 +92,23 @@ class PageProductCreateDesktop extends StatelessWidget {
                                       .textTheme
                                       .headlineSmall),
                               SizedBox(height: DimenSizes.spaceBtwItems),
-                              ProductAdditionalImages(
-                                  additionalProductImagesUrls:
-                                      RxList<String>.empty(),
-                                  onTapToAddImage: () {},
-                                  onTapToRemoveImage: (index) {}),
+                              // ProductAdditionalImages(
+                              //     additionalProductImagesUrls:
+                              //         RxList<String>.empty(),
+                              //     onTapToAddImage: () {},
+                              //     onTapToRemoveImage: (index) {}),
                               SizedBox(height: DimenSizes.spaceBtwSections),
 
                               // Product Brand
-                              ProductBrand(),
+                              // ProductBrand(),
                               SizedBox(height: DimenSizes.spaceBtwSections),
 
                               // Product Categories
-                              ProductCategories(),
+                              // ProductCategories(),
                               SizedBox(height: DimenSizes.spaceBtwSections),
 
                               // Product Visibility
-                              ProductVisibilityWidget(),
+                              // ProductVisibilityWidget(),
                               SizedBox(height: DimenSizes.spaceBtwSections),
                             ],
                           ),
